@@ -1,0 +1,17 @@
+{"ts":1365330689735,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"\nfrom dbe.cal.models import *\nfrom django.contrib import admin\n\nadmin.site.register(Entry, EntryAdmin)\n"]],"start1":0,"start2":0,"length1":0,"length2":103}]],"length":103}
+{"contributors":[],"silentsave":true,"ts":1365357173443,"patch":[[{"diffs":[[0,"om d"],[1,"models"],[0,"be.cal."],[-1,"models"],[0," imp"]],"start1":3,"start2":3,"length1":21,"length2":21}]],"length":103,"saved":false}
+{"ts":1365357175034,"patch":[[{"diffs":[[0,"om d"],[-1,"models"],[0,"be.cal."],[1,"models"],[0," imp"]],"start1":3,"start2":3,"length1":21,"length2":21}]],"length":103,"saved":false}
+{"ts":1365357177357,"patch":[[{"diffs":[[0,"rom "],[-1,"dbe.cal"],[0,".mod"]],"start1":2,"start2":2,"length1":15,"length2":8}]],"length":96,"saved":false}
+{"ts":1365357179235,"patch":[[{"diffs":[[0,"\nfrom "],[1,"myprojec"],[0,".models "]],"start1":0,"start2":0,"length1":14,"length2":22}]],"length":104,"saved":false}
+{"ts":1365357181004,"patch":[[{"diffs":[[0,"myprojec"],[1,"t"],[0,".models "]],"start1":6,"start2":6,"length1":16,"length2":17}]],"length":105,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1365358929854,"patch":[[{"diffs":[[0," admin\n\n"],[1,"class AdminBlog(admin.ModelAdmin):\n    pass\n\n"],[0,"admin.si"]],"start1":58,"start2":58,"length1":16,"length2":61}]],"length":150,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1365359164850,"patch":[[{"diffs":[[0,"\n\nclass "],[-1,"Admin"],[1,"Entry"],[0,"Blog(adm"]],"start1":64,"start2":64,"length1":21,"length2":21}]],"length":150,"saved":false}
+{"ts":1365359281277,"patch":[[{"diffs":[[0,"Entr"],[-1,"yBlog"],[0,"(adm"]],"start1":72,"start2":72,"length1":13,"length2":8}]],"length":145,"saved":false}
+{"ts":1365359282428,"patch":[[{"diffs":[[0,"ass Entr"],[1,"yAdmi"],[0,"(admin.M"]],"start1":68,"start2":68,"length1":16,"length2":21}]],"length":150,"saved":false}
+{"ts":1365359284411,"patch":[[{"diffs":[[0,"ntryAdmi"],[1,"n"],[0,"(admin.M"]],"start1":73,"start2":73,"length1":16,"length2":17}]],"length":151,"saved":false}
+{"ts":1365359301481,"patch":[[{"diffs":[[0,"ss Entry"],[-1,"Admin"],[1,"Blo"],[0,"(admin.M"]],"start1":69,"start2":69,"length1":21,"length2":19}]],"length":149,"saved":false}
+{"ts":1365359356365,"patch":[[{"diffs":[[0,"in\n\n"],[-1,"class EntryBlo(admin.ModelAdmin):\n    pass\n"],[0,"\nadm"]],"start1":62,"start2":62,"length1":51,"length2":8}]],"length":106,"saved":false}
+{"ts":1365359360250,"patch":[[{"diffs":[[0,"yAdmin)\n"],[1,"\n"]],"start1":98,"start2":98,"length1":8,"length2":9}]],"length":107,"saved":false}
+{"ts":1365359362395,"patch":[[{"diffs":[[0,"yAdmin)\n"],[1,"    pass"],[0,"\n"]],"start1":98,"start2":98,"length1":9,"length2":17}]],"length":115,"saved":false}
+{"ts":1365359365488,"patch":[[{"diffs":[[0,"in)\n"],[-1,"    "],[0,"pass"]],"start1":102,"start2":102,"length1":12,"length2":8}]],"length":111,"saved":false}
+{"ts":1365359377303,"patch":[[{"diffs":[[0,"in)\n"],[-1,"pass"],[0,"\n"]],"start1":102,"start2":102,"length1":9,"length2":5}]],"length":107,"saved":false}
