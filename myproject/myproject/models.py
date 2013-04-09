@@ -27,6 +27,16 @@ class Entry(models.Model):
 
     class Meta:
         verbose_name_plural = "entries"
+        
+        
+class Greener(models.Model):
+        user            = models.OneToOneField(User)
+        birthday        = models.DateField()
+        name            = models.CharField(max_length=100)
+
+        def __unicode__(self):
+                return self.name
+    	
 
 
 ### Admin

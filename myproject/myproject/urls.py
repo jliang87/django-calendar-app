@@ -14,5 +14,9 @@ urlpatterns = patterns('myproject.views',
     url(r"^day/(\d+)/(\d+)/(\d+)/$", "day", name='day'),
     url(r"^settings/$", "settings", name='settings'),
     url(r"^(\d+)/$", "main", name='main'),
-    url(r"", "main", name='main'), 
+    url(r"^$", "main", name='main'), 
+)
+
+urlpatterns += patterns('',
+    (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'cal/login.html'}),
 )
