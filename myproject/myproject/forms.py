@@ -1,17 +1,16 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from drinker.models import Drinker
+from myproject.models import Greener
 
 class RegistrationForm(ModelForm):
         username        = forms.CharField(label=(u'User Name'))
-        email           = forms.EmailField(label=(u'Email Address'))
         password        = forms.CharField(label=(u'Password'), widget=forms.PasswordInput(render_value=False))
         password1       = forms.CharField(label=(u'Verify Password'), widget=forms.PasswordInput(render_value=False))
 
         class Meta:
-                model = Drinker
-                exclude = ('user',)
+                model = Greener
+                exclude = ('user', 'iNumber', 'name')
 
         def clean_username(self):
                 username = self.cleaned_data['username']

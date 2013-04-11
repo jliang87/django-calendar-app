@@ -15,3 +15,4 @@
 {"ts":1365359362395,"patch":[[{"diffs":[[0,"yAdmin)\n"],[1,"    pass"],[0,"\n"]],"start1":98,"start2":98,"length1":9,"length2":17}]],"length":115,"saved":false}
 {"ts":1365359365488,"patch":[[{"diffs":[[0,"in)\n"],[-1,"    "],[0,"pass"]],"start1":102,"start2":102,"length1":12,"length2":8}]],"length":111,"saved":false}
 {"ts":1365359377303,"patch":[[{"diffs":[[0,"in)\n"],[-1,"pass"],[0,"\n"]],"start1":102,"start2":102,"length1":9,"length2":5}]],"length":107,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1365531119365,"patch":[[{"diffs":[[0,"ryAdmin)"],[1,"\nadmin.site.register(Greener)"],[0,"\n\n"]],"start1":97,"start2":97,"length1":10,"length2":39}]],"length":136,"saved":false}

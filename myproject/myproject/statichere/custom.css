@@ -1,0 +1,24 @@
+td, th {
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
+  font-size: 16px;
+  padding: 6px; }
+
+th {
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%; }
+
+td {
+  background: #FFF;
+  color: #777;
+  height: 80px;
+  vertical-align: middle;
+  font-size: 16px;
+  text-align: center; }
+
+.notmonth, .notmonth a {
+  color: #CCC; }
+
+.month {
+  background-color: #D7F2FF; 
+  font-size: 20px;}

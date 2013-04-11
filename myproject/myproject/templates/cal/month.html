@@ -1,9 +1,7 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-<a href= "{% url "myproject.views.month" year month "prev" %}">&lt;&lt; Prev</a>
-<a href= "{% url "myproject.views.month" year month "next" %}">Next &gt;&gt;</a>
-
 <h4>{{ mname }} {{ year }}</h4>
 
 <div class="month">

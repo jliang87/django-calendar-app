@@ -3,12 +3,14 @@ import calendar
 from datetime import date, datetime, timedelta
 
 from django.core.urlresolvers import reverse
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.core.context_processors import csrf
 from django.forms.models import modelformset_factory
 from django.template import RequestContext
+from myproject.forms import RegistrationForm
 
 from myproject.models import *
 
@@ -72,7 +74,7 @@ def main(request, year=None):
                                                    reminders=reminders(request)))
 
 @login_required
-def month(request, year, month, change=None):
+def month(request, year=time.localtime()[0], month=time.localtime()[1], change=None):
     """Listing of days in `month`."""
     year, month = int(year), int(month)
 
@@ -96,7 +98,7 @@ def month(request, year, month, change=None):
     for day in month_days:
         entries = current = False   # are there entries for this day; current day?
         if day:
-            entries = Entry.objects.filter(date__year=year, date__month=month, date__day=day)
+            entries = Entry.objects.filter(date__year=year, date__month=month, date__day=day, creator=request.user)
             if not _show_users(request):
                 entries = entries.filter(creator=request.user)
             if day == nday and year == nyear and month == nmonth:
@@ -146,3 +148,25 @@ def add_csrf(request, **kwargs):
     d = dict(user=request.user, **kwargs)
     d.update(csrf(request))
     return d
+    
+def signup(request):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(reverse("myproject.views.main"))
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                user = User.objects.create_user(username=form.cleaned_data['username'], password = form.cleaned_data['password'])
+                user.save()
+                greener = Greener(user=user, iNumber='i888888', name='NAH NALA')
+                greener.save()
+                new_greener = authenticate(username=request.POST['username'],
+                                    password=request.POST['password'])
+                login(request, new_greener)
+                return HttpResponseRedirect(reverse("myproject.views.main"))
+            else:
+                return render_to_response('cal/signup.html', {'form': form}, context_instance=RequestContext(request))
+        else:
+                ''' user is not submitting the form, show them a blank registration form '''
+                form = RegistrationForm()
+                context = {'form': form}
+                return render_to_response('cal/signup.html', context, context_instance=RequestContext(request))

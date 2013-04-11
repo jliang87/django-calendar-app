@@ -13,3 +13,4 @@
 {"ts":1365394684668,"patch":[[{"diffs":[[0,"ef= \"{% url "],[1,"\""],[0,"myproject.vi"]],"start1":133,"start2":133,"length1":24,"length2":25}]],"length":1901,"saved":false}
 {"ts":1365394702559,"patch":[[{"diffs":[[0,"'{% url "],[1,"\""],[0,"myprojec"]],"start1":975,"start2":975,"length1":16,"length2":17}]],"length":1902,"saved":false}
 {"ts":1365394704840,"patch":[[{"diffs":[[0,"iews.day"],[1,"\""],[0," year mo"]],"start1":995,"start2":995,"length1":16,"length2":17}]],"length":1903,"saved":false}
+{"ts":1365678530441,"patch":[[{"diffs":[[0,"t %}"],[-1,"\n<a href= \"{% url \"myproject.views.month\" year month \"prev\" %}\">&lt;&lt; Prev</a>\n<a href= \"{% url \"myproject.views.month\" year month \"next\" %}\">Next &gt;&gt;</a>"],[0,"\n\n<h"]],"start1":42,"start2":42,"length1":170,"length2":8}]],"length":1741,"saved":false}

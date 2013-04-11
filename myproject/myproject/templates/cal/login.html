@@ -6,6 +6,8 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
+<a href= "{% url "myproject.views.signup" %}">No account? Sign up!</a>
+
 <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
 {% csrf_token %}
 <table>
