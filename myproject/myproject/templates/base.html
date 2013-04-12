@@ -7,13 +7,14 @@
     <link href="/static/custom.css" type="text/css" rel="stylesheet" >
   </head>
   <body>
-    <!-- Calendar reminders-->
+<div style='position:absolute;z-index:-1;left:0;top:0;width:100%;height:100%;'>
+        <img src='/static/274827.jpg' style='width:100%;height:100%' alt='[]'/>
+        </div>
+<!-- Calendar reminders-->
     {% if reminders %}
-    <div class="reminders">
         <div class="gr">Alerts</div>
         {% for reminder in reminders %}<p> {{ reminder.short|safe }}</p>
         {% endfor %}
-    </div>
     {% endif %}
     <!-- Content -->
     {% block content %}

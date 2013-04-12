@@ -8,36 +8,40 @@ table
     
 .title{
     margin-top: 35px;
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
-     text-align: center;
-     color: #777;
+    font-family: "Helvetica", arial, helvetica, sans-serif;
+    text-align: center;
+    color: #EEF;
+    margin-bottom: 30px;
 }    
 
 td, th {
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
   font-size: 16px;
   padding: 6px; 
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
   }
 
 th {
-  color: #666;
+  color: #EEF;
   text-align: center;
   }
 
 td {
-  color: #777;
+  color: #EEF;
   height: 80px;
   vertical-align: middle;
   font-size: 16px;
   text-align: center; 
   overflow: scroll;
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-  outline-offset: -1px;
   }
 
 .day {
-  background-color: #CCC; }
+    background-color:rgba(200,255,200,0.1);
+ 
+  }
 
 .current {
-  background-color: #D7F2FF; 
+    background-color:rgba(200,200,255,0.5);
 }
+

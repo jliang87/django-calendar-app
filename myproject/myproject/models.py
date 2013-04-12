@@ -5,7 +5,7 @@ from django.contrib import admin
 
 class Entry(models.Model):
     title = models.CharField(max_length=40)
-    snippet = models.CharField(max_length=150, blank=True)
+    snippet = models.CharField(max_length=100, blank=True)
     body = models.TextField(max_length=10000, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     date = models.DateField(blank=True)
@@ -20,9 +20,9 @@ class Entry(models.Model):
 
     def short(self):
         if self.snippet:
-            return u"<i>%s</i> - %s" % (self.title, self.snippet)
-        else:
-            return self.title
+            return u'%s' % (self.snippet)
+        #else:
+         #   return self.title
     short.allow_tags = True
 
     class Meta:
