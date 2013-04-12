@@ -1,24 +1,36 @@
-td, th {
-  font-family: "Lucida Grande", arial, helvetica, sans-serif;
-  font-size: 16px;
-  padding: 6px; }
+#articles .calendar {
+  border-collapse: collapse;
+  width: 100%; }
+  #articles .calendar td, #articles .calendar th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px; }
+  #articles .calendar th {
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%; }
+  #articles .calendar td {
+    background: #FFF;
+    color: #777;
+    height: 80px;
+    vertical-align: middle;
+    font-size: 16px;
+    text-align: center; }
+  #articles .calendar .notmonth, #articles .calendar .notmonth a {
+    color: #CCC; }
+  #articles .calendar .today {
+    background-color: #D7F2FF; }
 
-th {
-  color: #666;
+#articles #month {
+  margin: 0;
+  padding-bottom: 10px;
   text-align: center;
-  width: 14.2857142857143%; }
+  font-size: 22px; }
+  #articles #month a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #999; }
 
-td {
-  background: #FFF;
-  color: #777;
-  height: 80px;
-  vertical-align: middle;
-  font-size: 16px;
-  text-align: center; }
-
-.notmonth, .notmonth a {
-  color: #CCC; }
-
-.month {
-  background-color: #D7F2FF; 
-  font-size: 20px;}
+#articles ul {
+  font-size: 11px;
+  padding-left: 20px; }

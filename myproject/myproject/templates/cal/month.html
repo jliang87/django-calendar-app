@@ -2,11 +2,10 @@
 {% load staticfiles %}
 
 {% block content %}
-<h4>{{ mname }} {{ year }}</h4>
+<div class="title">{{ mname }} {{ year }}</div>
 
-<div class="month">
+<div class="calendar">
     <table>
-
     <tr>
         <td class="empty">Mon</td>
         <td class="empty">Tue</td>
@@ -36,7 +35,8 @@
                 {{ day }}
                 {% for entry in entries %}
                     <br />
-                    <b>{{ entry.creator }}</b>: {{ entry.short|safe }}
+                    <br />
+                    {{ entry.short|safe }}
                 {% endfor %}
                 {% for entry in other_entries %}
                     <div class="entry">

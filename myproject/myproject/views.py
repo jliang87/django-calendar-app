@@ -116,8 +116,13 @@ def month(request, year=time.localtime()[0], month=time.localtime()[1], change=N
 @login_required
 def day(request, year, month, day):
     """Entries for the day."""
-    EntriesFormset = modelformset_factory(Entry, extra=1, exclude=("creator", "date"),
-                                          can_delete=True)
+    entries = Entry.objects.filter(date__year=year, date__month=month,
+                                         date__day=day, creator=request.user)
+    if len(entries) == 0:
+        EntriesFormset = modelformset_factory(Entry, extra=1, exclude=("creator", "date"), can_delete=True)
+    else:
+        EntriesFormset = modelformset_factory(Entry, extra=0, exclude=("creator", "date"), can_delete=True)
+    
     other_entries = []
     if _show_users(request):
         other_entries = Entry.objects.filter(date__year=year, date__month=month,

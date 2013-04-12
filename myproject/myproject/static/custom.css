@@ -1,24 +1,43 @@
+table
+{
+    border-collapse:collapse; table-layout:fixed;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    }
+    
+.title{
+    margin-top: 35px;
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+     text-align: center;
+     color: #777;
+}    
+
 td, th {
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
   font-size: 16px;
-  padding: 6px; }
+  padding: 6px; 
+  }
 
 th {
-  color: #666;d
+  color: #666;
   text-align: center;
-  width: 14.2857142857143%; }
+  }
 
 td {
-  background: #FFF;
   color: #777;
   height: 80px;
   vertical-align: middle;
   font-size: 16px;
-  text-align: center; }
+  text-align: center; 
+  overflow: scroll;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+  }
 
-.notmonth, .notmonth a {
-  color: #CCC; }
+.day {
+  background-color: #CCC; }
 
-.month {
+.current {
   background-color: #D7F2FF; 
-  font-size: 20px;}
+}
