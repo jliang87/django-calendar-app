@@ -1,0 +1,10 @@
+{"ts":1365883502254,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":["jackliang1987@hotmail.com"],"silentsave":true,"ts":1365883546899,"patch":[[{"diffs":[[1," $(document).ready(function() {\n    // This is more like it!\n  });"]],"start1":0,"start2":0,"length1":0,"length2":66}]],"length":66,"saved":false}
+{"ts":1365883549815,"patch":[[{"diffs":[[0,"ike it!\n"],[1,"    \n"],[0,"  });"]],"start1":53,"start2":53,"length1":13,"length2":18}]],"length":71,"saved":false}
+{"ts":1365883575082,"patch":[[{"diffs":[[0,"it!\n    "],[1," $(document).ready(function() {\n    // This is more like it!\n  });"],[0,"\n  });"]],"start1":57,"start2":57,"length1":14,"length2":80}]],"length":137,"saved":false}
+{"ts":1365883580162,"patch":[[{"diffs":[[0,"    "],[-1," $(document).ready(function() {\n    // This is more like it!\n  });"],[1,"alert"],[0,"\n  }"]],"start1":61,"start2":61,"length1":74,"length2":13}]],"length":76,"saved":false}
+{"ts":1365883585030,"patch":[[{"diffs":[[0,"   alert"],[1,"(\"sa\")"],[0,"\n  });"]],"start1":62,"start2":62,"length1":14,"length2":20}]],"length":82,"saved":false}
+{"ts":1365883586041,"patch":[[{"diffs":[[0,"lert(\"sa"],[1,"d"],[0,"\")\n  });"]],"start1":66,"start2":66,"length1":16,"length2":17}]],"length":83,"saved":false}
+{"ts":1365883597424,"patch":[[{"diffs":[[0,"    "],[-1,"alert(\"sad\")"],[0,"\n  }"]],"start1":61,"start2":61,"length1":20,"length2":8}]],"length":71,"saved":false}
+{"ts":1365883606638,"patch":[[{"diffs":[[0,"it!\n    "],[1,"alert(\"sad\""],[0,"\n  });"]],"start1":57,"start2":57,"length1":14,"length2":25}]],"length":82,"saved":false}
+{"ts":1365883609855,"patch":[[{"diffs":[[0,"rt(\"sad\""],[1,");"],[0,"\n  });"]],"start1":68,"start2":68,"length1":14,"length2":16}]],"length":84,"saved":false}

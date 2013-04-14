@@ -25,27 +25,22 @@
             {% if day != 0 and not current %}"day"{% endif %}
             {% if day != 0 and current %}"current"{% endif %}
             {% if day != 0 %}
-                #onClick="parent.location='{% url "myproject.views.day" year month day %}'"
+                onClick="parent.location='{% url "myproject.views.day" year month day %}'"
                 #onMouseOver="this.bgColor='#eeeeee';"
                 #onMouseOut="this.bgColor='white';"
-            {% endif %} >
+            {% endif %} 
+            data-id="{{ day }}">
 
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
+                <div style="position:relative">
                 {{ day }}
                 {% for entry in entries %}
                     <br />
                     <br />
                     {{ entry.short|safe }}
                 {% endfor %}
-                {% for entry in other_entries %}
-                    <div class="entry">
-                      {{ entry.creator }} |
-                      {{ entry.short|safe }}<br />
-                      {{ entry.body }}<br />
-                    </div>
-                {% endfor %}
-                 <br />
+                <div class="edit-icon-{{ day }}" style="top:0; position:absolute; visibility: hidden"><i class="icon-leaf icon-white"></i></div>
             {% endif %}
             </td>
         {% endfor %}

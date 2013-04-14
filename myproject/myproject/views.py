@@ -156,7 +156,7 @@ def add_csrf(request, **kwargs):
     
 def signup(request):
         if request.user.is_authenticated():
-            return HttpResponseRedirect(reverse("myproject.views.main"))
+            return HttpResponseRedirect(reverse("myproject.views.month"))
         if request.method == 'POST':
             form = RegistrationForm(request.POST)
             if form.is_valid():
@@ -167,7 +167,7 @@ def signup(request):
                 new_greener = authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
                 login(request, new_greener)
-                return HttpResponseRedirect(reverse("myproject.views.main"))
+                return HttpResponseRedirect(reverse("myproject.views.month"))
             else:
                 return render_to_response('cal/signup.html', {'form': form}, context_instance=RequestContext(request))
         else:

@@ -10,7 +10,8 @@ table
     margin-top: 35px;
     font-family: "Helvetica", arial, helvetica, sans-serif;
     text-align: center;
-    color: #EEF;
+    color: #FEFEFE;
+    font-size:18px;
     margin-bottom: 30px;
 }    
 
@@ -18,30 +19,29 @@ td, th {
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
   font-size: 16px;
   padding: 6px; 
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-  outline-offset: -1px;
+  color: #FEFEFE
   }
 
 th {
-  color: #EEF;
   text-align: center;
   }
 
 td {
-  color: #EEF;
   height: 80px;
   vertical-align: middle;
   font-size: 16px;
   text-align: center; 
-  overflow: scroll;
   }
 
 .day {
-    background-color:rgba(200,255,200,0.1);
- 
+    background-color:rgba(200,255,200,0.3);
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
   }
 
 .current {
     background-color:rgba(200,200,255,0.5);
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
 }
 
