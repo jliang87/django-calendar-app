@@ -3,9 +3,8 @@ $.fn.showEdit = function(id) {
 };
 
 $.fn.hideEdit = function(id) {
-  $('#pencil-'+id).popover('hide');
+  $('#pencil-'+id).popover('destroy');
 };
-
 
 $(document).ready(function() {
      $(".day").hover( 

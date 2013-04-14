@@ -4,8 +4,8 @@ from django.contrib import admin
 
 
 class Entry(models.Model):
-    title = models.CharField(max_length=40)
-    snippet = models.CharField(max_length=100, blank=True)
+    title = models.CharField(max_length=40, blank=True)
+    snippet = models.CharField(max_length=30, blank=True)
     body = models.TextField(max_length=10000, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     date = models.DateField(blank=True)

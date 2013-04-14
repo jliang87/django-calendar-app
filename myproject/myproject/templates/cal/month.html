@@ -33,12 +33,12 @@
 
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
-                <div class="cell" style="position:relative; padding-bottom: 10px ">
+                <div class="cell" style="position:relative;">
                     {{ day }}
                     {% for entry in entries %}
-                        <br />
-                        <br />
+                        <div style="margin-top:10px">
                         {{ entry.short|safe }}
+                        </div>
                     {% endfor %}
                     {% if entries|length == 0 %}
                         <div class="edit-icon-{{ day }}" style="top:0; position:absolute; visibility: hidden">
@@ -48,7 +48,7 @@
                         <div style="top:0; position:absolute;">
                             <a href={% url "myproject.views.day" year month day %}><i class="icon-star icon-white"></i></a></div>
                     
-                        <div class="pencil-icon-{{ day }}" style="position:absolute; visibility: hidden">
+                        <div class="pencil-icon-{{ day }}" style="position:absolute; visibility: hidden; padding-bottom:6px">
                             <a href='#' id='pencil-{{ day }}' data-toggle="tooltip" title="Edit snippet"><i class="icon-pencil icon-white"></i></a></div>    
                     {% endif %}
                 </div>
