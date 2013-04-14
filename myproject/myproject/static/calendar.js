@@ -1,9 +1,10 @@
 $.fn.showEdit = function(id) {
-  $(document).on('click', '#pencil-'+id, (function(event) { $(this).popover('show'); event.preventDefault(); }));
+  $(document).on('click', '#pencil-'+id, (function(event) { $('#td-'+id).css("overflow", "visible"); $(this).popover('show', {html:'true'}); event.preventDefault(); }));
 };
 
 $.fn.hideEdit = function(id) {
-  $('#pencil-'+id).popover('destroy');
+  $('#td-'+id).css("overflow-y", "scroll");
+  $('#pencil-'+id).popover('destroy', {html:'false'});
 };
 
 $(document).ready(function() {
