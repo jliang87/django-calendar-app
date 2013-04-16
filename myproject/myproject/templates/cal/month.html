@@ -25,7 +25,7 @@
             {% if day != 0 and not current %}"day"{% endif %}
             {% if day != 0 and current %}"current"{% endif %}
             {% if day != 0 %}
-                #onClick="parent.location='{% url "myproject.views.day" year month day %}'"
+                onClick="parent.location='{% url "myproject.views.day" year month day %}'"
                 #onMouseOver="this.bgColor='#eeeeee';"
                 #onMouseOut="this.bgColor='white';"
             {% endif %} 
@@ -33,23 +33,21 @@
 
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
-                <div class="cell-{{ day }}" style="position:relative;">
+                <div id="cell-{{ day }}" style="position:relative;">
                     {{ day }}
                     {% for entry in entries %}
-                        <div style="margin-top:10px">
+                        <div style="margin-top:10px; vertical-align:middle; text-align:center;">
                         {{ entry.short|safe }}
                         </div>
                     {% endfor %}
                     {% if entries|length == 0 %}
-                        <div class="edit-icon-{{ day }}" style="top:0; position:absolute; visibility: hidden">
-                            <a href={% url "myproject.views.day" year month day %}><i class="icon-leaf icon-white"></i></a></div>
+                        <div id="edit-icon-{{ day }}" style="top:0; position:absolute; visibility: hidden">
+                             <i class="icon-leaf"></i></div>
                     {% endif %}
                     {% if entries|length == 1 %}
-                        <div style="top:0; position:absolute;">
-                            <a href={% url "myproject.views.day" year month day %}><i class="icon-star icon-white"></i></a></div>
-                    
-                        <div class="pencil-icon-{{ day }}" style="position:absolute; visibility: hidden; padding-bottom:6px;">
-                            <a href='#' data-content="<form><input type='text'/></form>" id='pencil-{{ day }}' data-toggle="tooltip" title="Edit snippet"><i class="icon-pencil icon-white"></i></a></div>    
+                        <div id="star-icon-{{ day }}" style="top:0; position:absolute;"><i class="icon-star"></i></div>
+                        <div id="pencil-icon-{{ day }}" style="position:absolute; top:0; visibility: hidden;">
+                            <i class="icon-pencil"></i></div>
                     {% endif %}
                 </div>
             {% endif %}
