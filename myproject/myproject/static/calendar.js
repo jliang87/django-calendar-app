@@ -34,7 +34,7 @@ $(document).ready(function() {
     $(".current").hover( 
         function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(60,183,236,0.35)" );
+        $(this).css( "background-color", "rgba(60,183,236,0.32)" );
         $('#edit-icon-'+id).stop(true, true).hide().css({
           visibility: "visible"
         }).fadeIn('slow');
@@ -45,7 +45,7 @@ $(document).ready(function() {
         return this;
     }, function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(60,183,236,0.4)" );
+        $(this).css( "background-color", "rgba(60,183,236,0.35)" );
         $('#edit-icon-'+id).css({ visibility: "hidden" });
         $('#pencil-icon-'+id).css({ visibility: "hidden" });
         $('#star-icon-'+id).stop(true, true).hide().css({

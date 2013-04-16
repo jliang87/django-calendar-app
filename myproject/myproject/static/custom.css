@@ -44,7 +44,7 @@ td {
   }
 
 .current {
-    background-color:rgba(60,183,236,0.4);
+    background-color:rgba(60,183,236,0.35);
     cursor:pointer
 }
 
