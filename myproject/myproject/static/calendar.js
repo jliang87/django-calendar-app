@@ -9,7 +9,7 @@ $(document).ready(function() {
      $(".day").hover( 
         function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(255,255,255,0.35)" );
+        $(this).css( "background-color", "rgba(50,79,195,0.35)" );
         $(this).showEdit(id);
         $('#edit-icon-'+id).stop(true, true).hide().css({
           visibility: "visible"
@@ -22,7 +22,7 @@ $(document).ready(function() {
     }, function() {
         var id = $(this).data('id');
         $(this).hideEdit(id);
-        $(this).css( "background-color", "rgba(255,255,255,0.4)" );
+        $(this).css( "background-color", "rgba(50,79,195,0.4)" );
         $('#edit-icon-'+id).css({ visibility: "hidden" });
         $('#pencil-icon-'+id).css({ visibility: "hidden" });
         $('#star-icon-'+id).stop(true, true).hide().css({
@@ -34,7 +34,7 @@ $(document).ready(function() {
     $(".current").hover( 
         function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(255,255,255,0.35)" );
+        $(this).css( "background-color", "rgba(60,183,236,0.35)" );
         $('#edit-icon-'+id).stop(true, true).hide().css({
           visibility: "visible"
         }).fadeIn('slow');
@@ -45,7 +45,7 @@ $(document).ready(function() {
         return this;
     }, function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(255,255,255,0.4)" );
+        $(this).css( "background-color", "rgba(60,183,236,0.4)" );
         $('#edit-icon-'+id).css({ visibility: "hidden" });
         $('#pencil-icon-'+id).css({ visibility: "hidden" });
         $('#star-icon-'+id).stop(true, true).hide().css({

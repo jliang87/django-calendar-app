@@ -8,9 +8,9 @@ table
     
 .title{
     margin-top: 35px;
-    font-family: "Helvetica", arial, helvetica, sans-serif;
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
     text-align: center;
-    color: #111;
+    color: #fff;
     font-size:18px;
     margin-bottom: 30px;
 }    
@@ -19,11 +19,14 @@ td, th {
   font-family: "Lucida Grande", arial, helvetica, sans-serif;
   font-size: 16px;
   padding: 6px; 
-  color: #111
+  color: #fff;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
   }
 
 th {
   text-align: center;
+  background-color:rgba(255,189,55,1);
   }
 
 td {
@@ -36,16 +39,17 @@ td {
   }
 
 .day {
-    background-color:rgba(255,255,255,0.4);
-    outline: 1px solid rgba(0, 0, 0, 0.1);
-    outline-offset: -1px;
+    background-color:rgba(50,79,195,0.4);
     cursor:pointer
   }
 
 .current {
-    background-color:rgba(255,255,255,0.4);
-    outline: 1px solid rgba(0, 0, 0, 0.1);
-    outline-offset: -1px;
+    background-color:rgba(60,183,236,0.4);
     cursor:pointer
+}
+
+.empty
+{
+    background-color:rgba(100,100,100,0.4);
 }
 

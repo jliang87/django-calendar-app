@@ -42,12 +42,12 @@
                     {% endfor %}
                     {% if entries|length == 0 %}
                         <div id="edit-icon-{{ day }}" style="top:0; position:absolute; visibility: hidden">
-                             <i class="icon-leaf"></i></div>
+                             <i class="icon-leaf icon-white"></i></div>
                     {% endif %}
                     {% if entries|length == 1 %}
-                        <div id="star-icon-{{ day }}" style="top:0; position:absolute;"><i class="icon-star"></i></div>
+                        <div id="star-icon-{{ day }}" style="top:0; position:absolute;"><i class="icon-bookmark icon-white"></i></div>
                         <div id="pencil-icon-{{ day }}" style="position:absolute; top:0; visibility: hidden;">
-                            <i class="icon-pencil"></i></div>
+                            <i class="icon-pencil icon-white"></i></div>
                     {% endif %}
                 </div>
             {% endif %}
