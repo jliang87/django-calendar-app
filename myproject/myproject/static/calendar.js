@@ -5,6 +5,14 @@ $.fn.showEdit = function(id) {
 $.fn.hideEdit = function(id) {
 };
 
+$.fn.send_request = function() {
+    alert("asd");
+  $.get(location.href, function(data){
+    $("#idName").html(data.name);
+    $("#idBirthday").html(data.birthday);
+  });
+};
+
 $(document).ready(function() {
      $(".day").hover( 
         function() {
@@ -34,7 +42,6 @@ $(document).ready(function() {
     $(".current").hover( 
         function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(60,183,236,0.32)" );
         $('#edit-icon-'+id).stop(true, true).hide().css({
           visibility: "visible"
         }).fadeIn('slow');
@@ -45,7 +52,6 @@ $(document).ready(function() {
         return this;
     }, function() {
         var id = $(this).data('id');
-        $(this).css( "background-color", "rgba(60,183,236,0.35)" );
         $('#edit-icon-'+id).css({ visibility: "hidden" });
         $('#pencil-icon-'+id).css({ visibility: "hidden" });
         $('#star-icon-'+id).stop(true, true).hide().css({

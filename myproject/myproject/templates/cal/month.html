@@ -25,7 +25,7 @@
             {% if day != 0 and not current %}"day"{% endif %}
             {% if day != 0 and current %}"current"{% endif %}
             {% if day != 0 %}
-                onClick="parent.location='{% url "myproject.views.day" year month day %}'"
+                onClick="send_request();"
                 #onMouseOver="this.bgColor='#eeeeee';"
                 #onMouseOut="this.bgColor='white';"
             {% endif %} 
