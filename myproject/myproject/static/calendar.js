@@ -1,24 +1,23 @@
-$.fn.showEdit = function(id) {
-  $(document).on('click', '#pencil-'+id, (function(event) { event.preventDefault(); }));
-};
-
-$.fn.hideEdit = function(id) {
-};
-
-$.fn.send_request = function() {
-    alert("asd");
-  $.get(location.href, function(data){
-    $("#idName").html(data.name);
-    $("#idBirthday").html(data.birthday);
-  });
-};
-
 $(document).ready(function() {
+     $(".day, .current").click(function() {
+         var id = $(this).data('id');
+         var filled = $(this).data('filled');
+         if (filled == "False")
+         {
+           $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min well spent!");
+           $("#form-"+id).submit();
+         }
+         else if (filled == "True")
+         {
+            $("#form-"+id+" #id_form-0-DELETE").attr('checked','checked');
+            $("#form-"+id).submit();
+         }
+     }); 
+    
      $(".day").hover( 
         function() {
         var id = $(this).data('id');
         $(this).css( "background-color", "rgba(50,79,195,0.35)" );
-        $(this).showEdit(id);
         $('#edit-icon-'+id).stop(true, true).hide().css({
           visibility: "visible"
         }).fadeIn('slow');
@@ -29,7 +28,6 @@ $(document).ready(function() {
         return this;
     }, function() {
         var id = $(this).data('id');
-        $(this).hideEdit(id);
         $(this).css( "background-color", "rgba(50,79,195,0.4)" );
         $('#edit-icon-'+id).css({ visibility: "hidden" });
         $('#pencil-icon-'+id).css({ visibility: "hidden" });

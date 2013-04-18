@@ -20,7 +20,7 @@ urlpatterns = patterns('myproject.views',
     (r'^register/$', 'signup'),
     url(r"^(\d+)/$", "month", name='month'),
     url(r"^$", "month", name='month'), 
-    url(r'^$', HybridDetailView.as_view(model=Entry)),
+    # url(r'^$', HybridDetailView.as_view(model=Entry)),
 )
 
 urlpatterns += patterns('',

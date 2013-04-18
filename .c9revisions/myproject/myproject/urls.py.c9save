@@ -143,3 +143,4 @@
 {"ts":1366184940045,"patch":[[{"diffs":[[0,"\nfrom my"],[1,"project"],[0,".views i"]],"start1":208,"start2":208,"length1":16,"length2":23}]],"length":1005,"saved":false}
 {"ts":1366184960328,"patch":[[{"diffs":[[0,"(r'^"],[-1,"(?P<pk>\\d"],[0,")$',"]],"start1":772,"start2":772,"length1":17,"length2":8}]],"length":996,"saved":false}
 {"ts":1366184960854,"patch":[[{"diffs":[[0," url(r'^"],[-1,")"],[0,"$', Hybr"]],"start1":768,"start2":768,"length1":17,"length2":16}]],"length":995,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1366218681297,"patch":[[{"diffs":[[0,"onth'), \n   "],[1," #"],[0," url(r'^$', "]],"start1":756,"start2":756,"length1":24,"length2":26}]],"length":997,"saved":false}

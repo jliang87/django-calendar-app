@@ -18,19 +18,18 @@
 
     {% for week in month_days %}
         <tr>
-        {% for day, entries, current in week %}
+        {% for day, entries, current, formset, filled in week %}
 
             <!-- TD style: empty | day | current; onClick handler and highlight  -->
             <td class= {% if day == 0 %}"empty"{% endif %}
             {% if day != 0 and not current %}"day"{% endif %}
             {% if day != 0 and current %}"current"{% endif %}
             {% if day != 0 %}
-                onClick="send_request();"
+                #onClick=send_request({{ day }});
                 #onMouseOver="this.bgColor='#eeeeee';"
                 #onMouseOut="this.bgColor='white';"
             {% endif %} 
-            data-id="{{ day }}" id="td-{{ day }}">
-
+            data-id="{{ day }}" id="td-{{ day }}" data-filled ="{{ filled }}">
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
                 <div id="cell-{{ day }}" style="position:relative;">
@@ -49,6 +48,24 @@
                         <div id="pencil-icon-{{ day }}" style="position:absolute; top:0; visibility: hidden;">
                             <i class="icon-pencil icon-white"></i></div>
                     {% endif %}
+                </div>
+                <div style="display:none">
+                    <form id="form-{{ day }}" action="{% url "myproject.views.day" year month day %}" method="POST"> {% csrf_token %}
+                        {{ formset.management_form }}
+                        {% for entry in formset.forms %}
+                            {{ entry.id }}
+                            <div class="entry">
+                                <div class="del">Delete {{ entry.DELETE }}</div>
+                                <div id="inp1">
+                                <p>Title: {{ entry.title }}</p>
+                                <p>Snippet: {{ entry.snippet }}</p>
+                                </div>
+                                <p>Remind: {{ entry.remind }}</p>
+                                {{ entry.body }}
+                            </div>
+                        {% endfor %}
+                        <input type="submit" value="Save" /> 
+                    </form>
                 </div>
             {% endif %}
             </td>

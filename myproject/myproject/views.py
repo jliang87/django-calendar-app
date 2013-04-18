@@ -120,14 +120,25 @@ def month(request, year=time.localtime()[0], month=time.localtime()[1], change=N
     # each day tuple will contain list of entries and 'current' indicator
     for day in month_days:
         entries = current = False   # are there entries for this day; current day?
+        form = None
+        filled = False
         if day:
             entries = Entry.objects.filter(date__year=year, date__month=month, date__day=day, creator=request.user)
             if not _show_users(request):
                 entries = entries.filter(creator=request.user)
             if day == nday and year == nyear and month == nmonth:
                 current = True
+                
+            if len(entries) == 0:
+                form = modelformset_factory(Entry, extra=1, exclude=("creator", "date"), can_delete=True)
+            else:
+                form = modelformset_factory(Entry, extra=0, exclude=("creator", "date"), can_delete=True)
+                filled = True
+                
+            formset = form(queryset=Entry.objects.filter(date__year=year,
+            date__month=month, date__day=day, creator=request.user))
 
-        lst[week].append((day, entries, current))
+        lst[week].append((day, entries, current, formset, filled))
         if len(lst[week]) == 7:
             lst.append([])
             week += 1
