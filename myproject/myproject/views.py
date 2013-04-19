@@ -13,31 +13,11 @@ from django.template import RequestContext
 from myproject.forms import RegistrationForm
 
 from django.utils import simplejson
-from django.views.generic.detail import BaseDetailView, SingleObjectTemplateResponseMixin
 
 from myproject.models import *
 
 mnames = "January February March April May June July August September October November December"
 mnames = mnames.split()
-
-
-
-class JSONResponseMixin(object):
-    def render_to_response(self, context):
-        return self.get_json_response(self.convert_context_to_json(context))
-    def get_json_response(self, content, **httpresponse_kwargs):
-        return HttpResponse(content, content_type='application/json', **httpresponse_kwargs)
-    def convert_context_to_json(self, context):
-        return simplejson.dumps(context)
-
-class HybridDetailView(JSONResponseMixin, SingleObjectTemplateResponseMixin, BaseDetailView):
-    def render_to_response(self, context):
-        if self.request.is_ajax():
-            obj = context['object'].as_dict()
-            return JSONResponseMixin.render_to_response(self, obj)
-        else:
-            return SingleObjectTemplateResponseMixin.render_to_response(self, context)
-            
 
 
 
@@ -122,6 +102,7 @@ def month(request, year=time.localtime()[0], month=time.localtime()[1], change=N
         entries = current = False   # are there entries for this day; current day?
         form = None
         filled = False
+        formset = 0
         if day:
             entries = Entry.objects.filter(date__year=year, date__month=month, date__day=day, creator=request.user)
             if not _show_users(request):
@@ -161,22 +142,73 @@ def day(request, year, month, day):
     if _show_users(request):
         other_entries = Entry.objects.filter(date__year=year, date__month=month,
                                        date__day=day).exclude(creator=request.user)
+                                       
+    year, month, origday = int(year), int(month), int(day)
 
     if request.method == 'POST':
-        formset = EntriesFormset(request.POST)
-        if formset.is_valid():
-            # add current user and date to each entry & save
-            entries = formset.save(commit=False)
-            for entry in entries:
-                entry.creator = request.user
-                entry.date = date(int(year), int(month), int(day))
-                entry.save()
-            return HttpResponseRedirect(reverse("myproject.views.month", args=(year, month)))
+        if request.is_ajax():
+            formset = EntriesFormset(request.POST)
+            if formset.is_valid():
+                # add current user and date to each entry & save
+                entries = formset.save(commit=False)
+                for entry in entries:
+                    entry.creator = request.user
+                    entry.date = date(int(year), int(month), int(origday))
+                    entry.save()
+                    
+                cal = calendar.Calendar()
+                month_days = cal.itermonthdays(year, month)
+                nyear, nmonth, nday = time.localtime()[:3]
+                lst = [[]]
+                week = 0
+            
+                # make month lists containing list of days for each week
+                # each day tuple will contain list of entries and 'current' indicator
+                for day in month_days:
+                    entries = current = False   # are there entries for this day; current day?
+                    form = None
+                    filled = False
+                    formset = 0
+                    if day:
+                        entries = Entry.objects.filter(date__year=year, date__month=month, date__day=day, creator=request.user)
+                        if not _show_users(request):
+                            entries = entries.filter(creator=request.user)
+                        if day == nday and year == nyear and month == nmonth:
+                            current = True
+                            
+                        if len(entries) == 0:
+                            form = modelformset_factory(Entry, extra=1, exclude=("creator", "date"), can_delete=True)
+                        else:
+                            form = modelformset_factory(Entry, extra=0, exclude=("creator", "date"), can_delete=True)
+                            filled = True
+                            
+                        formset = form(queryset=Entry.objects.filter(date__year=year,
+                        date__month=month, date__day=day, creator=request.user))
+            
+                    lst[week].append((day, entries, current, formset, filled))
+                    if len(lst[week]) == 7:
+                        lst.append([])
+                        week += 1
+                
+                return render_to_response("cal/month.html", dict(year=year, month=month, user=request.user,
+                            month_days=lst, mname=mnames[month-1], reminders=reminders(request)),
+                            context_instance=RequestContext(request))
+        else:
+            formset = EntriesFormset(request.POST)
+            if formset.is_valid():
+                # add current user and date to each entry & save
+                entries = formset.save(commit=False)
+                for entry in entries:
+                    entry.creator = request.user
+                    entry.date = date(int(year), int(month), int(day))
+                    entry.save()
+                return HttpResponseRedirect(reverse("myproject.views.month", args=(year, month))) 
 
     else:
         # display formset for existing enties and one extra form
         formset = EntriesFormset(queryset=Entry.objects.filter(date__year=year,
             date__month=month, date__day=day, creator=request.user))
+    
     return render_to_response("cal/day.html", add_csrf(request, entries=formset, year=year,
             month=month, day=day, other_entries=other_entries, reminders=reminders(request)),
             context_instance=RequestContext(request))

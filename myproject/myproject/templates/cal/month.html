@@ -1,3 +1,4 @@
+<div id="try">
 {% extends "base.html" %}
 {% load staticfiles %}
 
@@ -49,24 +50,26 @@
                             <i class="icon-pencil icon-white"></i></div>
                     {% endif %}
                 </div>
-                <div style="display:none">
-                    <form id="form-{{ day }}" action="{% url "myproject.views.day" year month day %}" method="POST"> {% csrf_token %}
-                        {{ formset.management_form }}
-                        {% for entry in formset.forms %}
-                            {{ entry.id }}
-                            <div class="entry">
-                                <div class="del">Delete {{ entry.DELETE }}</div>
-                                <div id="inp1">
-                                <p>Title: {{ entry.title }}</p>
-                                <p>Snippet: {{ entry.snippet }}</p>
+                {% if formset != 0 %}
+                    <div style="display:none">
+                        <form id="form-{{ day }}" action="{% url "myproject.views.day" year month day %}" method="POST"> {% csrf_token %}
+                            {{ formset.management_form }}
+                            {% for entry in formset.forms %}
+                                {{ entry.id }}
+                                <div class="entry">
+                                    <div class="del">Delete {{ entry.DELETE }}</div>
+                                    <div id="inp1">
+                                    <p>Title: {{ entry.title }}</p>
+                                    <p>Snippet: {{ entry.snippet }}</p>
+                                    </div>
+                                    <p>Remind: {{ entry.remind }}</p>
+                                    {{ entry.body }}
                                 </div>
-                                <p>Remind: {{ entry.remind }}</p>
-                                {{ entry.body }}
-                            </div>
-                        {% endfor %}
-                        <input type="submit" value="Save" /> 
-                    </form>
-                </div>
+                            {% endfor %}
+                            <input type="submit" value="Save" /> 
+                        </form>
+                    </div>
+                {% endif %}
             {% endif %}
             </td>
         {% endfor %}
@@ -77,3 +80,4 @@
     <div class="clear"></div>
 </div>
 {% endblock %}
+</div>

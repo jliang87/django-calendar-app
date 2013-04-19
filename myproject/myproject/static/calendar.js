@@ -5,12 +5,34 @@ $(document).ready(function() {
          if (filled == "False")
          {
            $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min well spent!");
-           $("#form-"+id).submit();
+           $("#form-"+id).submit(
+               $.ajax
+                ({
+                    data: $("#form-"+id).serialize(), // get the form data
+                    type: "POST", // GET or POST
+                    url: $("#form-"+id).attr('action'), // the file to call
+                    success: function(data) { // on success..
+                     var cool = $(data);
+                     $('#try').replaceWith(cool);
+                     }
+                })
+           );
          }
          else if (filled == "True")
          {
             $("#form-"+id+" #id_form-0-DELETE").attr('checked','checked');
-            $("#form-"+id).submit();
+            $("#form-"+id).submit(
+             $.ajax
+                ({
+                    data: $("#form-"+id).serialize(), // get the form data
+                    type: "POST", // GET or POST
+                    url: $("#form-"+id).attr('action'), // the file to call
+                    success: function(data) { // on success..
+                     var cool = $(data);
+                     $('#try').replaceWith(cool);
+                     }
+                })    
+            );
          }
      }); 
     

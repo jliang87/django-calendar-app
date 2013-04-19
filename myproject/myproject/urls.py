@@ -5,7 +5,6 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from myproject.models import Entry
-from myproject.views import HybridDetailView
 
 admin.autodiscover()
 
@@ -20,7 +19,6 @@ urlpatterns = patterns('myproject.views',
     (r'^register/$', 'signup'),
     url(r"^(\d+)/$", "month", name='month'),
     url(r"^$", "month", name='month'), 
-    # url(r'^$', HybridDetailView.as_view(model=Entry)),
 )
 
 urlpatterns += patterns('',
