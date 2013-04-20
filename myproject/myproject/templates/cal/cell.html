@@ -1,23 +1,5 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-{% block content %}
-<div class="title">{{ mname }} {{ year }}</div>
-
-<div class="calendar">
-    <table>
-    <tr>
-        <th>M</th>
-        <th>T</th>
-        <th>W</th>
-        <th>T</th>
-        <th>F</th>
-        <th>S</th>
-        <th>S</th>
-    </tr>
-
+<div id="try">
     {% for week in month_days %}
-        <tr>
         {% for day, entries, current, formset, filled in week %}
 
             <!-- TD style: empty | day | current; onClick handler and highlight  -->
@@ -72,9 +54,5 @@
             {% endif %}
             </td>
         {% endfor %}
-        </tr>
     {% endfor %}
-    </table>
-
 </div>
-{% endblock %}

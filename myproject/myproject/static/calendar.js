@@ -2,9 +2,11 @@ $(document).ready(function() {
      $(".day, .current").click(function() {
          var id = $(this).data('id');
          var filled = $(this).data('filled');
+         var that = $(this);
          if (filled == "False")
          {
            $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min well spent!");
+           $(that).data('filled', 'True');
            $("#form-"+id).submit(
                $.ajax
                 ({
@@ -13,14 +15,15 @@ $(document).ready(function() {
                     url: $("#form-"+id).attr('action'), // the file to call
                     success: function(data) { // on success..
                      var cool = $(data);
-                     $('#try').replaceWith(cool);
+                     $('#td-'+id).html(cool);
                      }
                 })
            );
          }
          else if (filled == "True")
          {
-            $("#form-"+id+" #id_form-0-DELETE").attr('checked','checked');
+            $("#form-"+id+" #id_form-0-DELETE").attr('checked', 'checked');
+            $(that).data('filled', 'False');
             $("#form-"+id).submit(
              $.ajax
                 ({
@@ -29,7 +32,7 @@ $(document).ready(function() {
                     url: $("#form-"+id).attr('action'), // the file to call
                     success: function(data) { // on success..
                      var cool = $(data);
-                     $('#try').replaceWith(cool);
+                     $('#td-'+id).html(cool);
                      }
                 })    
             );
