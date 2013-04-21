@@ -96,7 +96,7 @@ $(document).ready(function() {
                         // $('#cell-'+id).stop(true, true);
                         var cool = $(data);
                         $('#cell-'+id).replaceWith(cool);
-                        $('#cell-'+id).fadeIn(900);
+                        $('#cell-'+id).fadeIn(2000);
                         if (pop == "left")
                         {
                             $('#cell-'+id).addClass("left");

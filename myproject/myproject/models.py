@@ -16,7 +16,7 @@ class Entry(models.Model):
         if self.title:
             return unicode(self.creator) + u" - " + self.title
         else:
-            return unicode(self.creator) + u" - " + self.snippet[:40]
+            return unicode(self.creator) + u" - " + self.snippet[:30]
 
     def short(self):
         if self.snippet:
