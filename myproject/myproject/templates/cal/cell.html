@@ -1,7 +1,6 @@
 <div id="try">
     {% for week in month_days %}
         {% for day, entries, current, formset, filled in week %}
-
             <!-- TD style: empty | day | current; onClick handler and highlight  -->
             <td class= {% if day == 0 %}"empty"{% endif %}
             {% if day != 0 and not current %}"day"{% endif %}
@@ -11,10 +10,21 @@
                 #onMouseOver="this.bgColor='#eeeeee';"
                 #onMouseOut="this.bgColor='white';"
             {% endif %} 
-            data-id="{{ day }}" id="td-{{ day }}" data-filled ="{{ filled }}">
+            data-id="{{ day }}" id="td-{{ day }}" data-filled ="{{ filled }}" >
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
-                <div id="cell-{{ day }}" style="position:relative;">
+                <div id="cell-{{ day }}" style="position:relative; display:none" data-toggle="tooltip" 
+                    data-html="true" data-title='Edit note <button type="button" data-id="{{ day }}" class="close">&times;</button>' data-content='<form id="formpop-{{ day }}" 
+                    action="{% url "myproject.views.day" year month day %}" method="POST">
+                            {{ formset.management_form }}{% for entry in formset.forms %}
+                            {{ entry.id }}
+                            <div style="display:none">Delete {{ entry.DELETE }}</div>
+                            Snippet: {{ entry.snippet }}
+                            {% endfor %}
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}"/>
+                            <input type="submit" value="Save" class="btn btn-primary"/>
+                            <input type="submit" data-id="{{ day }}" style="margin-left: 3px" value="Erase" class="btn btn-warning erase"/>
+                    </form>'>
                     {{ day }}
                     {% for entry in entries %}
                         <div style="margin-top:10px; vertical-align:middle; text-align:center;">
@@ -30,8 +40,7 @@
                         <div id="pencil-icon-{{ day }}" style="position:absolute; top:0; visibility: hidden;">
                             <i class="icon-pencil icon-white"></i></div>
                     {% endif %}
-                </div>
-                {% if formset != 0 %}
+                    {% if formset != 0 %}
                     <div style="display:none">
                         <form id="form-{{ day }}" action="{% url "myproject.views.day" year month day %}" method="POST"> {% csrf_token %}
                             {{ formset.management_form }}
@@ -51,6 +60,7 @@
                         </form>
                     </div>
                 {% endif %}
+                </div>
             {% endif %}
             </td>
         {% endfor %}
