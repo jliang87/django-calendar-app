@@ -1,4 +1,5 @@
-$(document).on("click", ".close", function() {
+$(document).on("click", ".close", function(event) {
+    event.preventDefault();
     var id = $(this).data('id');
     $("#cell-"+id).popover('destroy');
 });
@@ -26,7 +27,7 @@ $(document).on("click", ".erase", function(event) {
                 {
                     $('#cell-'+id).addClass("left");
                 }
-                else
+                else if (pop == "right")
                 {
                     $('#cell-'+id).addClass("right");
                 }
@@ -64,7 +65,7 @@ $(document).ready(function() {
                         {
                             $('#cell-'+id).addClass("left");
                         }
-                        else
+                        else if (pop == "right")
                         {
                             $('#cell-'+id).addClass("right");
                         }
@@ -96,12 +97,12 @@ $(document).ready(function() {
                         // $('#cell-'+id).stop(true, true);
                         var cool = $(data);
                         $('#cell-'+id).replaceWith(cool);
-                        $('#cell-'+id).fadeIn(2000);
+                        $('#cell-'+id).fadeIn(1300);
                         if (pop == "left")
                         {
                             $('#cell-'+id).addClass("left");
                         }
-                        else
+                        else if (pop == "right")
                         {
                             $('#cell-'+id).addClass("right");
                         }

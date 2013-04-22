@@ -1,4 +1,4 @@
-<div id="try">
+<div>
     {% for week in month_days %}
         {% for day, entries, current, formset, filled in week %}
             <!-- TD style: empty | day | current; onClick handler and highlight  -->
@@ -14,7 +14,7 @@
             <!-- Day number and entry snippets -->
             {% if day != 0 %}
                 <div id="cell-{{ day }}" style="position:relative; display:none" data-toggle="tooltip" 
-                    data-html="true" data-title='<span style="color:#ccc;">Edit note</span> 
+                    data-html="true" data-title='<span style="color:#bbb;">Edit note</span> 
                     <a style="font-size: 1.1em; margin-top: -2px" href="#" data-id="{{ day }}" class="close">&times;</a>' data-content='<form id="formpop-{{ day }}" 
                     action="{% url "myproject.views.day" year month day %}" method="POST">
                             {{ formset.management_form }}{% for entry in formset.forms %}
