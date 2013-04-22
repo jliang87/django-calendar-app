@@ -1,3 +1,5 @@
+var clicked = false;
+
 $(document).on("click", ".close", function(event) {
     event.preventDefault();
     var id = $(this).data('id');
@@ -22,15 +24,15 @@ $(document).on("click", ".erase", function(event) {
                 {
                     $(this).replaceWith(cool); 
                     $('#cell-'+id).fadeIn(900);
+                    if (pop == "left")
+                    {
+                        $('#cell-'+id).addClass("left");
+                    }
+                    else if (pop == "right")
+                    {
+                        $('#cell-'+id).addClass("right");
+                    }
                 });
-                if (pop == "left")
-                {
-                    $('#cell-'+id).addClass("left");
-                }
-                else if (pop == "right")
-                {
-                    $('#cell-'+id).addClass("right");
-                }
             }
         }),
         $("#td-"+id).data('filled', 'False'),
@@ -38,7 +40,7 @@ $(document).on("click", ".erase", function(event) {
    );
 });
 
-
+// $("#form-"+id).att('disabled' , 'disasbled');
 $(document).ready(function() {
     
     $.fn.do = function(obj, event) {
@@ -48,8 +50,8 @@ $(document).ready(function() {
          var that = obj;
          if (filled == "False")
          {
+           clicked = true;
            $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min well spent!");
-           $(that).data('filled', 'True');
            $("#form-"+id).submit(
                $.ajax
                 ({
@@ -60,7 +62,7 @@ $(document).ready(function() {
                     { // on success..
                         var cool = $(data);
                         $('#cell-'+id).replaceWith(cool);
-                        $('#cell-'+id).fadeIn(800);
+                        $('#cell-'+id).fadeIn(800, function(){ $(that).data('filled', 'True'); clicked = false;} );
                         if (pop == "left")
                         {
                             $('#cell-'+id).addClass("left");
@@ -116,7 +118,8 @@ $(document).ready(function() {
 
     
     $(".day, .current").on("click",function(event) {
-         $(this).do(this, event);
+        if (!clicked)
+            $(this).do(this, event);
     }); 
     
     $(".day").hover( 
