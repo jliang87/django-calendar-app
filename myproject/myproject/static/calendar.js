@@ -42,7 +42,7 @@ $(document).on("click", ".erase", function(event) {
 
 // $("#form-"+id).att('disabled' , 'disasbled');
 $(document).ready(function() {
-    
+
     $.fn.do = function(obj, event) {
          var id = $(obj).data('id');
          var filled = $(obj).data('filled');
@@ -51,7 +51,7 @@ $(document).ready(function() {
          if (filled == "False")
          {
            clicked = true;
-           $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min. well spent!");
+           $("#form-"+id+" #id_form-0-snippet").attr("value", "30 minutes well spent!");
            $("#form-"+id).submit(
                $.ajax
                 ({
