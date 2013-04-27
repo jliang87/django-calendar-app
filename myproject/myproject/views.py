@@ -220,9 +220,6 @@ def add_csrf(request, **kwargs):
     d.update(csrf(request))
     return d
     
-def oops
-     return render_to_response("cal/oops.html")
-    
 def signup(request):
         if request.user.is_authenticated():
             return HttpResponseRedirect(reverse("myproject.views.month"))
@@ -244,3 +241,6 @@ def signup(request):
                 form = RegistrationForm()
                 context = {'form': form}
                 return render_to_response('cal/signup.html', context, context_instance=RequestContext(request))
+                
+def oops(request):
+     return render_to_response("cal/oops.html", context_instance=RequestContext(request))

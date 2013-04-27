@@ -51,7 +51,7 @@ $(document).ready(function() {
          if (filled == "False")
          {
            clicked = true;
-           $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min well spent!");
+           $("#form-"+id+" #id_form-0-snippet").attr("value", "30 min. well spent!");
            $("#form-"+id).submit(
                $.ajax
                 ({
