@@ -2,7 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="title">{{ mname }} {{ year }}</div>
+
+{% if mname == "May" %}
+    <div class="title">{{ mname }} {{ year }}</div>
+{% else %}
+    <div style="text-align: center;"><img src="/static/30x30logo.png" style="width:300px; height: auto; "></div>
+{% endif %}
 
 <div class="calendar">
     <table>
