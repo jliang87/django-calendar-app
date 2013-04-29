@@ -1,0 +1,4 @@
+{"ts":1367196295367,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":true,"ts":1367196297248,"patch":[[{"diffs":[[1,"html, body {\n    background: url('/static/30.png') no-repeat center center fixed; \n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    -o-background-size: cover;\n    background-size: cover;\n}"]],"start1":0,"start2":0,"length1":0,"length2":212}]],"length":212,"saved":false}
+{"ts":1367196305549,"patch":[[{"diffs":[[0,"tic/"],[-1,"30.png"],[1,"oops."],[0,"') n"]],"start1":38,"start2":38,"length1":14,"length2":13}]],"length":211,"saved":false}
+{"contributors":[],"silentsave":true,"ts":1367196522248,"patch":[[{"diffs":[[0,"ic/oops."],[1,"jpg"],[0,"') no-re"]],"start1":39,"start2":39,"length1":16,"length2":19}]],"length":214,"saved":false}
