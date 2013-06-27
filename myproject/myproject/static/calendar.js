@@ -22,7 +22,7 @@ $(document).on("click", ".erase", function(event) {
                 var cool = $(data);
                 $('#cell-'+id).fadeOut(function()
                 {
-                    $(this).replaceWith(cool); 
+                    $(this).replaceWith(cool); //before was using html(), but that does not work for the hidden form is ever increasing!
                     $('#cell-'+id).fadeIn(900);
                     if (pop == "left")
                     {
@@ -87,7 +87,7 @@ $(document).ready(function() {
                     $("#cell-"+id).popover({placement:'right'}).popover('show');
                 }
             }
-            $("#formpop-"+id).unbind('submit').on("submit", function(event){
+            $("#formpop-"+id).unbind('submit').on("submit", function(event){ //weird behavior that somehow also does multiple submits :<
                 event.preventDefault();
                 $.ajax
                 ({
